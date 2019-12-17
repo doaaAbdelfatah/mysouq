@@ -115,7 +115,7 @@
                                 <i class="fas fa-tachometer-alt"></i>Home</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">Home</a>
+                                    <a href="home.php">Home</a>
                                 </li>
                               
                             </ul>
