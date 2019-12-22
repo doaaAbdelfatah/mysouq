@@ -2,7 +2,6 @@
 session_start();
 if (!empty($_POST["email"]) && !empty($_POST["password"]) )
 {
-
     $email = filter_var(trim($_POST["email"]) ,FILTER_SANITIZE_EMAIL );
     if (filter_var(($email) ,FILTER_VALIDATE_EMAIL))
     {
@@ -29,7 +28,6 @@ if (!empty($_POST["email"]) && !empty($_POST["password"]) )
             header("location:index.php?msg=invalid_login");
         }
         mysqli_close($connection);
-
     }else {
         header("location:index.php?msg=not_valid_email");
     }   

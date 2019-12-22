@@ -30,7 +30,7 @@
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <!-- <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all"> -->
     <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
@@ -74,7 +74,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="cats.html">
+                            <a href="cats.php">
                                 <i class="fas fa-chart-bar"></i>Categories</a>
                         </li>
                    
@@ -121,7 +121,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="cats.html">
+                            <a href="cats.php">
                                 <i class="fas fa-chart-bar"></i>Categories</a>
                         </li>
                        
