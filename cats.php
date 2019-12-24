@@ -1,4 +1,5 @@
 <?php 
+$page_name = "cats";
 include("admin_header.php");
 ?>
 <div class="row">

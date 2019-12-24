@@ -30,7 +30,7 @@
     <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <!-- <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all"> -->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
@@ -43,7 +43,7 @@
 
 </head>
 
-<body class="animsition">
+<body>
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
         <header class="header-mobile d-block d-lg-none">
@@ -75,9 +75,14 @@
                         </li>
                         <li>
                             <a href="cats.php">
-                                <i class="fas fa-chart-bar"></i>Categories</a>
+                                <i class="fas fa-newspaper"></i>Categories
+                            </a>
                         </li>
-                   
+                        <li>
+                            <a href="brands.php">
+                                <i class="fas fa-bank"></i>Brand
+                            </a>
+                        </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Profile</a>
@@ -110,21 +115,20 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                        <li class="<?php if($page_name =='home') echo 'active'?>">
+                            <a class="js-arrow" href="home.php">
                                 <i class="fas fa-tachometer-alt"></i>Home</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="home.php">Home</a>
-                                </li>
-                              
-                            </ul>
                         </li>
-                        <li>
+                        <li class="<?php if($page_name =='cats') echo 'active'?>">
                             <a href="cats.php">
-                                <i class="fas fa-chart-bar"></i>Categories</a>
+                                <i class="fas fa-newspaper"></i>Categories
+                            </a>
                         </li>
-                       
+                        <li class="<?php if($page_name =='brands') echo 'active'?>">
+                            <a href="brands.php">
+                                <i class="fas fa-bank"></i>Brand
+                            </a>
+                        </li>                       
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Profile</a>
@@ -221,7 +225,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="logout_action.php">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

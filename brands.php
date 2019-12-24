@@ -1,4 +1,5 @@
 <?php 
+$page_name = "brands";
 include("admin_header.php");
 ?>
 <div class="row">
@@ -9,7 +10,7 @@ include("admin_header.php");
             Add New Brand
         </div>
         <div class="card-body">
-            <form action="brand_action.php" method="post">
+            <form action="brand_action.php" method="post" enctype="multipart/form-data">
               
                 <div class="form-group">
                     <label>Name</label>
@@ -21,6 +22,7 @@ include("admin_header.php");
                 </div>
                 <div class="form-group">
                     <label>Logo</label>
+                    <!-- <input name="logo[]" class="form-control" type="file" multiple  /> -->
                     <input name="logo" class="form-control" type="file"  />
                 </div>
                 
@@ -32,12 +34,29 @@ include("admin_header.php");
         </div>
         
         </div>
+    </div>    
+</div>
+
+<div class="row">
+
+    <?php
+        require_once("my_classes/Brand.php");
+        $brands = Brand::get_all();
+        foreach($brands as $brand){       
+    ?>
+    <div class="col-md-3 card p-2">
+        <img src="<?php echo $brand['logo']?>" class="card-img-top p-2" style="height: 150px">
+        <div class="card-body">
+            <h5 class="card-title"><a href="<?php echo $brand['site']?>" target="_blank"><?php echo $brand['name']?></a></h5>
+
+            <a href="brand_action.php?bid=<?php echo $brand['id']?>" class="btn btn-danger">Delete</a>
+        </div>
     </div>
-    <div class="col-md-8">
-      
-        
-       
-    </div>
+
+    <?php
+            }
+    ?>
+
 </div>
 
 

@@ -8,7 +8,6 @@ class Brand{
     var $logo ;
 
 
-
     // to insert new Brand
     function save()
     {
@@ -26,5 +25,36 @@ class Brand{
 
     }
 
+    static function get_all()
+    {
+        require_once("./config.php");
+        // connection
+        $db = new PDO(DSN, USER_NAME , PASSWORD);
+        $stm = $db->query("select id , name , site, logo from brands");
+        $rslt = $stm->fetchAll();        
+        $db = null;
+        return $rslt ;
+        
+    }
+     static function find_by_id($id)
+    {
+        require_once("./config.php");
+        // connection
+        $db = new PDO(DSN, USER_NAME , PASSWORD);
+        $stm = $db->query("select id , name , site, logo from brands where id=$id");
+        $brand = $stm->fetchObject();        
+        $db = null;
+        return $brand ;
+        
+    }
+    function delete()
+    {
+        require_once("./config.php");
+        // connection
+        $db = new PDO(DSN, USER_NAME , PASSWORD);
+        $db->exec("delete from  brands  where id=" .$this->id );
+        //close
+        $db = null;
+    }
 
 }
