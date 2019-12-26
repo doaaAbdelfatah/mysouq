@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 22, 2019 at 08:35 PM
+-- Generation Time: Dec 26, 2019 at 08:37 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `site` varchar(255) DEFAULT NULL,
-  `logo` varchar(255) DEFAULT '/images/brands/default.png',
+  `logo` varchar(255) DEFAULT 'images/brands/default.png',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -203,19 +203,22 @@ CREATE TABLE IF NOT EXISTS `users` (
   `Full_Name` varchar(45) DEFAULT NULL,
   `mobile` char(15) DEFAULT NULL,
   `status` enum('Active','Deactive','Blocked','Deleted') DEFAULT 'Deactive',
+  `last_login_at` datetime DEFAULT NULL,
   `create_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `created_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_users_users_idx` (`created_by`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `type`, `Full_Name`, `mobile`, `status`, `create_at`, `created_by`) VALUES
-(1, 'admin@mysouq.com', 'e10adc3949ba59abbe56e057f20f883e', 'Super Admin', 'Super Admin', NULL, 'Active', '2019-12-17 20:44:06', NULL);
+INSERT INTO `users` (`id`, `email`, `password`, `type`, `Full_Name`, `mobile`, `status`, `last_login_at`, `create_at`, `created_by`) VALUES
+(1, 'admin@mysouq.com', 'e10adc3949ba59abbe56e057f20f883e', 'Super Admin', 'Super Admin', NULL, 'Active', '2019-12-26 22:36:11', '2019-12-17 20:44:06', NULL),
+(2, 'ahmed@yahoo.com', '55587a910882016321201e6ebbc9f595', 'Vendor', 'ahmed', NULL, 'Active', NULL, '2019-12-26 21:56:39', 1),
+(3, 'sara@yahoo.com', 'e10adc3949ba59abbe56e057f20f883e', 'Admin', 'Sara', NULL, 'Active', NULL, '2019-12-26 21:57:30', 1);
 
 --
 -- Constraints for dumped tables

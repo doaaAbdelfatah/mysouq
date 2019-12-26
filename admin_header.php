@@ -22,6 +22,8 @@
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="css/parsley.css" rel="stylesheet" >
+   
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -73,6 +75,11 @@
                                 </li>                                
                             </ul>
                         </li>
+                        <li >
+                            <a href="users.php">
+                                <i class="fas fa-newspaper"></i>Users
+                            </a>
+                        </li>
                         <li>
                             <a href="cats.php">
                                 <i class="fas fa-newspaper"></i>Categories
@@ -118,6 +125,11 @@
                         <li class="<?php if($page_name =='home') echo 'active'?>">
                             <a class="js-arrow" href="home.php">
                                 <i class="fas fa-tachometer-alt"></i>Home</a>
+                        </li>
+                        <li class="<?php if($page_name =='users') echo 'active'?>">
+                            <a href="users.php">
+                                <i class="fas fa-newspaper"></i>Users
+                            </a>
                         </li>
                         <li class="<?php if($page_name =='cats') echo 'active'?>">
                             <a href="cats.php">

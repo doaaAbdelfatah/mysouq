@@ -10,15 +10,16 @@ include("admin_header.php");
             Add New Brand
         </div>
         <div class="card-body">
-            <form action="brand_action.php" method="post" enctype="multipart/form-data">
+   
+            <form action="brand_action.php" method="post" enctype="multipart/form-data" data-parsley-validate>
               
                 <div class="form-group">
                     <label>Name</label>
-                    <input name="name" class="form-control" placeholder="Enter Brand Name" />
+                    <input name="name" required class="form-control" placeholder="Enter Brand Name" />
                 </div>
                 <div class="form-group">
                     <label>Site URL</label>
-                    <input name="site" class="form-control" placeholder="Enter Brand Site URL" />
+                    <input name="site" type="url" class="form-control" placeholder="Enter Brand Site URL" />
                 </div>
                 <div class="form-group">
                     <label>Logo</label>

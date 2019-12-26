@@ -1,20 +1,21 @@
 <?php
 require_once('class.phpmailer.php');
+require_once("../config.php");
 function sendemail($toname,$to ,$fromname ,$from ,$subject ,$body )
 {
     $mail = new PHPMailer(true);  // the true param means it will throw exceptions on errors, which we need to catch
     $mail->IsSMTP();  // telling the class to use SMTP
-	$mail->CharSet = 'UTF-8';
+	$mail->CharSet = 'UTF-8'; // arabic 
     try{
 
         // from mailtrap
-          $mail->Host       = "smtp.mailtrap.io";  // SMTP server for the GMAIL server
-          $mail->Port       = 2525;                    // SMTP port for the GMAIL server
-          $mail->Username   = "e92929e1b39028";  // GMAIL username
-          $mail->Password   = "16cc69416b0e2e";             // GMAIL password
+          $mail->Host       = EMAIL_HOST;  // SMTP server for the GMAIL server
+          $mail->Port       = EMAIL_PORT;                    // SMTP port for the GMAIL server
+          $mail->Username   = EMAIL_UN;  // GMAIL username
+          $mail->Password   = EMAIL_PW;             // GMAIL password
           $mail->SMTPDebug  = 1;        // 1 to enables SMTP debug (for testing), 0 to disable debug (for production)
           $mail->SMTPAuth   = true;    // enable SMTP authentication
-          $mail->SMTPSecure = "tls";  // ssl required for Gmail
+          $mail->SMTPSecure = EMAIL_SECURE;  // ssl required for Gmail
             
           //////////////////////////////
 
