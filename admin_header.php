@@ -4,10 +4,15 @@
     {
         header("location:index.php?msg=secure_page");
     }
+    if (!empty($_SESSION["language"])){
+        if ($_SESSION["language"] == "ar") require("ar.php");
+        else require("en.php");
+    }
+    else require("en.php");
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $lang["lang"]?>" dir="<?php echo $lang["dir"]?>">
 
 <head>
     <!-- Required meta tags-->
@@ -29,7 +34,7 @@
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+   
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -42,6 +47,7 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <?php echo $lang["css"]?>
 
 </head>
 
@@ -75,6 +81,10 @@
                                 </li>                                
                             </ul>
                         </li>
+                        <?php
+                        if ($_SESSION["user"]["type"] == "Super Admin" || $_SESSION["user"]["type"] == "Admin"){
+                        
+                        ?>
                         <li >
                             <a href="users.php">
                                 <i class="fas fa-newspaper"></i>Users
@@ -90,6 +100,9 @@
                                 <i class="fas fa-bank"></i>Brand
                             </a>
                         </li>
+                        <?php
+                        }
+                        ?>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Profile</a>
@@ -113,7 +126,7 @@
         <!-- END HEADER MOBILE-->
 
         <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
+        <aside class="menu-sidebar d-none d-lg-block" <?php echo $lang["aside_style"]?> >
             <div class="logo">
                 <a href="#">
                     <img src="images/icon/my_logo.png" alt="My Souq" />
@@ -126,6 +139,10 @@
                             <a class="js-arrow" href="home.php">
                                 <i class="fas fa-tachometer-alt"></i>Home</a>
                         </li>
+                        <?php
+                        if ($_SESSION["user"]["type"] == "Super Admin" || $_SESSION["user"]["type"] == "Admin"){
+                        
+                        ?>
                         <li class="<?php if($page_name =='users') echo 'active'?>">
                             <a href="users.php">
                                 <i class="fas fa-newspaper"></i>Users
@@ -140,7 +157,8 @@
                             <a href="brands.php">
                                 <i class="fas fa-bank"></i>Brand
                             </a>
-                        </li>                       
+                        </li>   
+                        <?php } ?>                    
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Profile</a>
@@ -162,11 +180,10 @@
             </div>
         </aside>
         <!-- END MENU SIDEBAR-->
-
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
+            <header class="header-desktop" <?php echo $lang["header_style"]?>>
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">

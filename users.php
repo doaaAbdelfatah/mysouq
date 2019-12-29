@@ -25,7 +25,9 @@ include("admin_header.php");
                     <label>Type</label>
                     <select name="type" class="form-control" >
                         <option>Vendor</option>
-                        <option>Admin</option>
+                        <?php
+                        if ($_SESSION["user"]["type"] == "Super Admin" )   echo "<option>Admin</option>";
+                        ?>                        
                     </select>
                 </div>                             
                 

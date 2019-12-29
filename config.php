@@ -13,3 +13,4 @@
     define("EMAIL_UN" , "e92929e1b39028");
     define("EMAIL_PW" , "16cc69416b0e2e");
     define("EMAIL_SECURE" , "tls");
+    define("DOMAIN","http://localhost");

@@ -25,7 +25,7 @@
             $stm->bindParam(":by" , $this->created_by);
 
             $stm->execute();
-
+            $this->id = $db->lastInsertId();
             //close
             $db = null;
 

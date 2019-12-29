@@ -1,5 +1,14 @@
+<?php 
+session_start();
+
+if (!empty($_SESSION["language"])){
+    if ($_SESSION["language"] == "ar") require("ar.php");
+    else require("en.php");
+}
+else require("en.php");
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $lang["lang"]?>" dir="<?php echo $lang["dir"]?>">
 
 <head>
     <!-- Required meta tags-->
@@ -10,7 +19,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Login</title>
+    <title><?php echo $lang["Login"]?></title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -19,7 +28,9 @@
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    
+    <?php echo $lang["css"]?>
+    
 
     <!-- Vendor CSS-->
     <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
@@ -44,32 +55,37 @@
                         <div class="login-logo">
                             <a href="#">
                                 <img src="images/icon/my_logo.png" alt="CoolAdmin">
+                              
                             </a>
                         </div>
                         <div class="login-form">
                             <form action="login_action.php" method="post">
                                 <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" value="admin@mysouq.com" name="email" placeholder="Email">
+                                    <label><?php echo $lang["Email Address"]?></label>
+                                    <input class="au-input au-input--full" type="email" value="admin@mysouq.com" name="email" placeholder="<?php echo $lang["Email"]?>">
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" value="123456" name="password" placeholder="Password">
+                                    <label><?php echo $lang["Password"]?></label>
+                                    <input class="au-input au-input--full" type="password" value="123456" name="password" placeholder="<?php echo $lang["Password"]?>">
                                 </div>
                                 <div class="login-checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember">Remember Me
+                                        <input type="checkbox" name="remember"><?php echo $lang["Remember Me"]?>
                                     </label>
                                     <label>
-                                        <a href="#">Forgotten Password?</a>
+                                        <a href="#"><?php echo $lang["Forgotten Password"]?>?</a>
                                     </label>
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit"><?php echo $lang["sign in"]?></button>
                             </form>
                             <div class="register-link">
                                 <p>
-                                    Don't you have account?
-                                    <a href="#">Sign Up Here</a>
+                                <?php echo $lang["Don't you have account"]?>?
+                                    <a href="#"><?php echo $lang["Sign Up Here"]?></a>
+                                </p>
+
+                                <p>
+                                    <a href="change_lang_action.php?lang=ar" >اللغة العربية</a> | <a href="change_lang_action.php?lang=en">English</a>
                                 </p>
                             </div>
                         </div>

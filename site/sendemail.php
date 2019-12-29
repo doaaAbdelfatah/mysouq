@@ -1,6 +1,6 @@
 <?php
 require_once('class.phpmailer.php');
-require_once("../config.php");
+require_once("./config.php");
 function sendemail($toname,$to ,$fromname ,$from ,$subject ,$body )
 {
     $mail = new PHPMailer(true);  // the true param means it will throw exceptions on errors, which we need to catch
